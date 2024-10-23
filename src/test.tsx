@@ -1,13 +1,17 @@
-import {Outlet} from "react-router-dom";
-export const sumar = (a:number, b:number) => a + b;
+import {useEffect} from "react";
+import {Outlet, useParams} from "react-router-dom";
+export const sumar = (a: number, b: number) => a + b;
 export default function Test() {
-    console.log(sumar(5, 5));
+    const {productId} = useParams();
+
+    useEffect(() => {
+        console.log(productId);
+    }, [productId]);
     return (
         <>
-            <h1>Outlet</h1>
-            <Outlet />
+            <h1>Producto = {productId}</h1>
+
+            {/* <Outlet /> */}
         </>
-
-    )
-
+    );
 }
